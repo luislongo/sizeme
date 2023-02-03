@@ -24,6 +24,16 @@
   color: white;
 }
 
+.App-logo1 {
+  color: white;
+
+  visibility: hidden;
+}
+
+.App-logo2 {
+  color: white;
+}
+
 .App-link {
   color: #61dafb;
 }

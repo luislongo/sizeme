@@ -1,23 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef, useState } from "react";
+import "./App.css";
+import { useRuler } from "./useRuler";
 
 function App() {
+  const ref = useRef(null);
+  const [state, setState] = useState(false);
+  const { width, height, top, left } = useRuler(ref) || {};
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          {width} x {height}, {top} {left}
         </p>
         <a
-          className="App-link"
+          ref={ref}
+          className={state ? "App-logo1" : "App-logo2"}
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          state
         </a>
+        <button onClick={() => setState((prev) => !prev)}>old</button>
       </header>
     </div>
   );
